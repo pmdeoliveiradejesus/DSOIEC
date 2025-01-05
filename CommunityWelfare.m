@@ -256,7 +256,7 @@ NPV = -Io+pvfix(Rate,20,S);
 TIR=irr([-Io,CashFlow])*100;
 BCratio=pvfix(Rate,20,S)/-Io;
 % Define input parameters
-PV = Io; % Present Value (initial loan or investment amount)
+PV = -Io; % Present Value (initial loan or investment amount)
 PMT = S;  % Payment made each period (e.g., monthly)
 rate = Rate; % Interest rate per period (annual interest rate divided by 12 for monthly)
 FV = 0;     % Future Value (desired amount at the end of the periods, typically 0 for loans)
@@ -330,7 +330,7 @@ fprintf('-----------FINANCIAL INDICATORS-------------------\n')
 fprintf('Net Present Value                   USD    %6.2f mi\n',NPV/1000000)
 fprintf('Operational Savings                 USD/yr %6.2f mi\n',S/1000000)
 fprintf('Internal Rate of Return             pct    %6.2f \n',TIR)
-fprintf('Payback Time                        yrs    %6.2f \n',-NPER)
+fprintf('Payback Time                        yrs    %6.2f \n',NPER)
 fprintf('Benefit Cost Ratio                  pu     %6.2f \n',-BCratio)
 
 function [f] = objective_func(x)
